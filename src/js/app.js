@@ -12,7 +12,7 @@ $('.cities__select').each(function() {
   $this.addClass('select-hidden'); 
 
   // Добавить input
-  $this.after('<div class="select-styled  select-styled--not-selected"></div>');
+  $this.after('<div class="form-user__item  form-user__item--select  select-styled  select-styled--not-selected"></div>');
 
   var $styledSelect = $this.next('.select-styled');
 

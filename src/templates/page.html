@@ -24,19 +24,23 @@ title: Index page
 
 <section class="form-user">
 	<div class="container">
-		<div class="cities  form-user__wrap">
-			<div class="select">
-				<select class="cities__select">
+		<div class="form-user__wrap">
+			<div class="cities">
+				<div class="select">
+					<select class="cities__select">
 
-					{% for city in cities %}
-						<option class="cities__option" value="{{city.value}}">{{city.name}}</option>
-					{% endfor %}
+						{% for city in cities %}
+							<option class="cities__option" value="{{city.value}}">{{city.name}}</option>
+						{% endfor %}
 
-				</select>
+					</select>
+				</div>
 			</div>
+
+			<input class="form-user__item" type="text" name="fname" placeholder="Имя*"><br>
+			
 		</div>
 	</div>
 </section>
 
 {% endblock %}
-
