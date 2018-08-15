@@ -22,61 +22,21 @@ title: Index page
 
 {% block content %}
 
- 
-<!-- 
-<select id="year">
-    <option value="hide">Year:</option>
-    <option value="2010">2010</option>
-    <option value="2011">2011</option>
-    <option value="2012">2012</option>
-    <option value="2013">2013</option>
-    <option value="2014">2014</option>
-    <option value="2015">2015</option>
-</select>
-
-<br><br> -->
-
-
 <section class="form-user">
 	<div class="container">
-		<!-- <div class="cities  form-user__wrap"> -->
-			<!-- <div class="select"> -->
+		<div class="cities  form-user__wrap">
+			<div class="select">
 				<select class="cities__select">
 
 					{% for city in cities %}
-						<option class="cities__option" value="op1">{{city.name}}</option>
+						<option class="cities__option" value="{{city.value}}">{{city.name}}</option>
 					{% endfor %}
 
 				</select>
-			<!-- </div> -->
-		<!-- </div> -->
+			</div>
+		</div>
 	</div>
 </section>
 
-<br><br><br>
-
-<!-- <option class="cities__option" value="op2">op2</option>
-<option class="cities__option" value="op3">op3</option> -->
-
-
-	
-	{# variable example #}
-	<h1>{{title}}</h1>
-
-	
-	{# partial example #}
-	{% include "partials/_header.html" %}
-
-	{# mixin example #}
-	{{mixins.icon('facebook')}}
-
-
-	{# data usage example #}
-		{% import "data/data.html" as tests %}
-		
-		{% for test in tests.list %}
-		<li>{{test.title}}</li>
-		{% endfor %}
-	{# end of example #}
-
 {% endblock %}
+

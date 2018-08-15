@@ -3,20 +3,28 @@ import sayHello from './lib/sayHello.js';
 sayHello();
 
 
-$('select').each(function() {
-  var $this = $(this), numberOfOptions = $(this).children('option').length;
+$('.cities__select').each(function() {
   
-  $this.addClass('select-hidden'); 
-  $this.wrap('<div class="select"></div>');
-  $this.after('<div class="select-styled"></div>');
+  var $this = $(this);
+  var numberOfOptions = $(this).children('option').length; // Кол-во опций
 
-  var $styledSelect = $this.next('div.select-styled');
+  // Скрыть select  
+  $this.addClass('select-hidden'); 
+
+  // Добавить input
+  $this.after('<div class="select-styled  select-styled--not-selected"></div>');
+
+  var $styledSelect = $this.next('.select-styled');
+
+  // Текст первого эл-та
   $styledSelect.text($this.children('option').eq(0).text());
-  
+
+  // Вставить выпадающий список после инпута
   var $list = $('<ul />', {
     'class': 'select-options'
   }).insertAfter($styledSelect);
-  
+
+  // Заполнить значеня
   for (var i = 0; i < numberOfOptions; i++) {
     $('<li />', {
       text: $this.children('option').eq(i).text(),
@@ -28,23 +36,33 @@ $('select').each(function() {
   
   $styledSelect.click(function(e) {
     e.stopPropagation();
-    $('div.select-styled.active').not(this).each(function() {
-      $(this).removeClass('active').next('ul.select-options').hide();
-    });
-    $(this).toggleClass('active').next('ul.select-options').toggle();
+    $(this).toggleClass('is-active').next('ul.select-options').toggle();
   });
-  
+
   $listItems.click(function(e) {
     e.stopPropagation();
-    $styledSelect.text($(this).text()).removeClass('active');
-    $this.val($(this).attr('rel'));
+    $styledSelect.text($(this).text()).removeClass('is-active');
+
+    $styledSelect.removeClass('select-styled--not-selected');
+
+    var option_rel = $(this).attr('rel');
+    $this.val(option_rel);
     $list.hide();
-    //console.log($this.val());
+
+    var option_select = $this.children('option[value="' + option_rel+ '"]');
+    console.log(option_select);
+
+    $this.children('option').attr('selected', false);
+    option_select.attr('selected', true);
+    
+    // console.log($this.val());
   });
+
   
   $(document).click(function() {
-    $styledSelect.removeClass('active');
+    $styledSelect.removeClass('is-active');
     $list.hide();
   });
+
 
 });
