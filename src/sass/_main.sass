@@ -34,15 +34,15 @@
 		&--select.is-active
 			margin-bottom: 4px
 
-.select-hidden 
+.select-hidden
 	display: none
 	visibility: hidden
 	padding-right: 10px
 
-.select 
+.select
 	cursor: pointer
 
-.select-styled 
+.select-styled
 	position: relative
 	user-select: none
 	transition: all 0.2s ease-in
@@ -50,7 +50,7 @@
 	&--not-selected
 		color: #a7a7a7
 
-.select-styled:after 
+.select-styled:after
 	content: ""
 	width: 0
 	height: 0
@@ -60,18 +60,18 @@
 	top: 16px
 	right: 10px
 
-.select-options 
+.select-options
 	display: none
 	position: relative
-	z-index: 2
-	max-height: 232px
-	overflow: overlay
+	// z-index: 2
+	height: 232px
+	overflow: hidden
 	margin-bottom: 40px
 	background-color: #ffffff
 	border: 1px solid #e2e2e2
 	box-shadow: 0px 10px 17px 0px rgba(136, 139, 145, 0.2)
 
-.select-options li 
+.select-options li
 	margin: 0
 	padding: 12px 0
 	font-size: 15px
@@ -80,10 +80,10 @@
 	user-select: none
 	transition: all 0.15s ease-in
 
-.select-options li[rel="hide"] 
+.select-options li[rel="hide"]
 	display: none
 
-.select-options li:hover 
+.select-options li:hover
 	background: #e2e2e2
 
 

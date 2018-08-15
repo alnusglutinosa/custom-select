@@ -1,15 +1,17 @@
 import sayHello from './lib/sayHello.js';
+import './lib/jquery.mCustomScrollbar.js';
 
 sayHello();
 
 
+
 $('.cities__select').each(function() {
-  
+
   var $this = $(this);
   var numberOfOptions = $(this).children('option').length; // Кол-во опций
 
-  // Скрыть select  
-  $this.addClass('select-hidden'); 
+  // Скрыть select
+  $this.addClass('select-hidden');
 
   // Добавить input
   $this.after('<div class="form-user__item  form-user__item--select  select-styled  select-styled--not-selected"></div>');
@@ -31,9 +33,9 @@ $('.cities__select').each(function() {
       rel: $this.children('option').eq(i).val()
     }).appendTo($list);
   }
-  
+
   var $listItems = $list.children('li');
-  
+
   $styledSelect.click(function(e) {
     e.stopPropagation();
     $(this).toggleClass('is-active').next('ul.select-options').toggle();
@@ -54,14 +56,23 @@ $('.cities__select').each(function() {
 
     $this.children('option').attr('selected', false);
     option_select.attr('selected', true);
-    
+
     // console.log($this.val());
   });
 
-  
-  $(document).click(function() {
-    $styledSelect.removeClass('is-active');
-    $list.hide();
+
+  // $(document).click(function() {
+  //   $styledSelect.removeClass('is-active');
+  //   $list.hide();
+  // });
+
+
+});
+
+
+$(window).on('load',function() {
+  $('.select-options').mCustomScrollbar({
+    theme:'dark'
   });
 
 
