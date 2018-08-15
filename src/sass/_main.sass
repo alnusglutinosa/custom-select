@@ -1,0 +1,72 @@
+.container
+	max-width: 1200px
+	margin: 0 auto
+	padding: 0 15px
+
+.form-user
+	padding: 20px 0
+
+	&__wrap
+		width: 700px
+
+
+.select-hidden 
+	display: none
+	visibility: hidden
+	padding-right: 10px
+
+.select 
+	width: 700px
+	padding: 50px 60px 36px 60px
+	background-color: #f8f8f8
+	cursor: pointer
+
+.select-styled 
+	position: relative
+	height: 50px
+	font-size: 15px
+	line-height: 1.73
+	padding: 8px 15px
+	color: #a7a7a7
+	background-color: #ffffff
+	border: 1px solid #e2e2e2
+	transition: all 0.2s ease-in
+
+.select-styled:after 
+	content: ""
+	width: 0
+	height: 0
+	border: 7px solid transparent
+	border-color: #444444 transparent transparent transparent
+	position: absolute
+	top: 16px
+	right: 10px
+
+
+.select-options 
+	display: none
+	position: relative
+	z-index: 2
+	max-height: 232px
+	overflow: overlay
+	margin-top: 10px
+	background-color: #ffffff
+	border: 1px solid #e2e2e2
+	box-shadow: 0px 10px 17px 0px rgba(136, 139, 145, 0.2)
+
+.select-options li 
+	margin: 0
+	padding: 12px 0
+	font-size: 15px
+	line-height: 2
+	text-indent: 15px
+	user-select: none
+	transition: all 0.15s ease-in
+
+.select-options li[rel="hide"] 
+	display: none
+
+.select-options li:hover 
+	background: #e2e2e2
+
+

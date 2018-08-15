@@ -1,0 +1,5 @@
+ProjectTitle: custom-select
+
+PageList:
+- file: page.html
+  ready: 50
