@@ -66,6 +66,18 @@ $('.cities__select').each(function() {
   //   $list.hide();
   // });
 
+  $(document).mouseup(function(e) { // событие клика по веб-документу
+    //var div = $("#popup"); // тут указываем ID элемента
+    var div = $this;
+
+    if (!div.is(e.target) // если клик был не по нашему блоку
+		    && div.has(e.target).length === 0) { // и не по его дочерним элементам
+      // div.hide(); // скрываем его
+			   $styledSelect.removeClass('is-active');
+    		   $list.hide();
+    }
+  });
+
 
 });
 
