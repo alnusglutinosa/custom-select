@@ -4,7 +4,6 @@ import './lib/jquery.mCustomScrollbar.js';
 sayHello();
 
 
-
 $('.cities__select').each(function() {
 
   var $this = $(this);
@@ -38,7 +37,9 @@ $('.cities__select').each(function() {
 
   $styledSelect.click(function(e) {
     e.stopPropagation();
+
     $(this).toggleClass('is-active').next('ul.select-options').toggle();
+
   });
 
   $listItems.click(function(e) {
@@ -52,33 +53,22 @@ $('.cities__select').each(function() {
     $list.hide();
 
     var option_select = $this.children('option[value="' + option_rel+ '"]');
-    console.log(option_select);
 
     $this.children('option').attr('selected', false);
     option_select.attr('selected', true);
-
-    // console.log($this.val());
   });
 
 
-  // $(document).click(function() {
-  //   $styledSelect.removeClass('is-active');
-  //   $list.hide();
-  // });
-
   $(document).mouseup(function(e) { // событие клика по веб-документу
-    //var div = $("#popup"); // тут указываем ID элемента
     var div = $this;
 
     if (!div.is(e.target) // если клик был не по нашему блоку
-		    && div.has(e.target).length === 0) { // и не по его дочерним элементам
-      // div.hide(); // скрываем его
-			   $styledSelect.removeClass('is-active');
-    		   $list.hide();
+    	&& (!$styledSelect.is(e.target))
+    	&& div.has(e.target).length === 0) { // и не по его дочерним элементам
+	  	    $styledSelect.removeClass('is-active');
+	    	$list.hide();
     }
   });
-
-
 });
 
 
@@ -86,6 +76,4 @@ $(window).on('load',function() {
   $('.select-options').mCustomScrollbar({
     theme:'dark'
   });
-
-
 });
