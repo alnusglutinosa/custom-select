@@ -36,9 +36,24 @@ title: Index page
 					</select>
 				</div>
 			</div>
+		</div>
+	</div>
+</form>
 
-			<input class="form-user__item" type="text" name="name" placeholder="Имя*"><br>
-			
+<form class="form-user">
+	<div class="container">
+		<div class="form-user__wrap">
+			<div class="cities">
+				<div class="select">
+					<select class="cities__select" name="cities">
+
+						{% for city in cities %}
+							<option class="cities__option" value="{{city.value}}">{{city.name}}</option>
+						{% endfor %}
+
+					</select>
+				</div>
+			</div>
 		</div>
 	</div>
 </form>
